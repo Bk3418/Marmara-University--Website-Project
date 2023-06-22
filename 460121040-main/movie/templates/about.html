@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+   <body class="main-layout">
+      {% for About in abouts %}
+         <div class="about container row col-md-12">
+            <div v-for="About in abouts" class="titlepage">
+               <h2 class="h2">{{ About.Title }} </h2>
+            </div> 
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-10 offset-md-1">
+                     <div class="about_img">
+                        <div class="about_box">
+                           <h3 class="h3">{{ About.altbaslik }}</h3>
+                           <p class="p">{{ About.aciklama}}</p>
+                           <a class="read_more">Read More</a>
+                        </div>
+                     </div>
+                  </div>   
+               </div>    
+            </div>
+         </div>
+      {% endfor %}
+   </body>
+{% endblock %}

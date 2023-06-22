@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+   <body class="main-layout">
+      <div class="wedo ">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>What We Do</h2>
+                     <p>It is a long established fact that a reader will be distracted by the </p>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-10 offset-md-1">
+                  <div class="row">
+                     {% for Furnitures in furnituress %}
+                        <div class="col-md-6 margin_bottom">
+                           <div class="work">
+                              <figure><img src="{{ Furnitures.Img.url }}" alt="#" /></figure>
+                           </div>
+                           <div class="work_text">
+                              <h3>{{ Furnitures.Servis_ID.Name}}<br><span class="blu">{{ Furnitures.Aciklama}}</span></h3>
+                           </div>
+                        </div>
+                     {% endfor %}
+                  </div>
+                  <a class="read_more" href="#">See More</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+{% endblock %} 

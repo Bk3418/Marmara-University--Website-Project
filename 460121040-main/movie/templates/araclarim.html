@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+            <form action="" method="post">
+                <div class=" table">
+                    <div class="container  border p-5">
+                    <button type="submit" class="btn btn-primary">  
+                     <a href="{% url 'aracekle'%}" >Araç Ekle</a>
+                    </button>
+                    <table >
+                        <tr>
+                        <th>Marka</th>
+                        <th>Model</th>
+                        <th>Yil</th>
+                        </tr>
+                        {% for Car in form %}
+                        {% if user.is_authenticated %}
+                        <tr>
+                            <td class="col-6">{{ Car.Marka }} </td>
+                            <td class="col-8">{{ Car.Model }} </td>
+                            <td class="col-8">{{ Car.Yil }} </td>
+                        </tr>
+                        {% endif %}      
+                        {% endfor %}
+                    </table>
+                </div>
+            </form>
+            
+
+
+
+{% endblock %}

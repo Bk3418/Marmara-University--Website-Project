@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid bg-secondary text-center mt-5 p-3">
+        <div class="row">
+            <div class="col border">
+                <h1 class="text-white">Rezervation</h1>
+            </div>
+        </div>
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="form-title text-center">
+                <h3>Reservation Form</h3>
+            </div>
+            <form action="{% url 'rezervation' %}" method="post">
+                {% csrf_token %}
+                <div class="input-group mb-3 mt-3">
+                    <label for="name-Surname">Ad Soyad:</label>
+                    <input type="name-Surname" name="full_name" class="form-control" placeholder="Name Surname"/>
+                </div>
+                <div class="input-group mb-3 mt-3">
+                    <label for="Telephone">Telefon:</label>
+                    <input type="Telephone" name="telephone" class="form-control" placeholder="Telephone"/>
+                </div>
+                <div class="input-group mb-3 mt-3">
+                    <label for="Email">E-mail:</label> <input type="Email" name="email" class="form-control" placeholder="Your Email"/>
+                </div>
+                <div class="input-group mb-3 mt-3">
+                    <label for="date" class="input-group date" id="datepicker">Tarih:</label>
+                    <input type="date" name="date" class="form-control" placeholder="Date"/>
+                </div>
+                <div class="input-group mb-3 mt-3">
+                    <label for="time" class="input-group date" id="datepicker">Saat:</label>
+                    <input type="time" name="time" class="form-control" placeholder="Saat"/>
+                </div>
+                
+                <div class="input-group mb-3 mt-3">
+                    <label for="Description">Sorununuz:</label>
+                    <textarea class="form-control" rows="5" id="Description" name="description"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

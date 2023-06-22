@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="input-group mb-3 mt-3">
+                    <label for="Yorum">Yorum</label>
+                    <input type="comment" name="Yorum" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary"> submit </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

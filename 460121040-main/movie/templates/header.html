@@ -1,0 +1,70 @@
+{% load static %}
+<header>
+ <div class="header">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+             <div class="full">
+                <div class="center-desk">
+                   <div class="logo">
+                      <a href="{% url 'Home' %}"><img src="{% static 'images/logo.png' %}" alt="#" /></a>
+                   </div>'
+                </div>
+             </div>
+          </div>
+          <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+             <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarsExample04">
+                   <ul class="navbar-nav mr-auto">
+                      <li class="nav-item ">
+                         <a class="nav-link" href="{% url 'Home' %}"> Home  </a>
+                      </li>
+                      <li class="nav-item">
+                         <a class="nav-link" href="{% url 'About' %}">About</a>
+                      </li>
+                      <li class="nav-item">
+                         <a class="nav-link" href="{% url 'Furnitures' %}">Furnitures</a>
+                      </li>
+                      <li class="nav-item">
+                         <a class="nav-link" href="{% url 'Testimonial' %}">Testimonial</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Contact' %}">Contact Us</a>
+                     </li>
+                     {% if user.is_authenticated %}
+                        <li class="has-dropdown">
+                           <a class="nav-link" href="{% url 'logoutaccount' %}">
+                              <li class="nav-item d_none">
+                                 <a class="nav-link" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                              </li>
+                              <li class="nav-item dropdown">
+                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    <img src="{{ user.img }}" alt="{{ user.username }}" style="width:40px;" class="rounded-pill">
+                                 </a>
+                                 <ul class="dropdown-menu">
+                                   <li><a class="dropdown-item" href="{% url 'araclarim' %}">Araçlarım</a></li>
+                                   <li><a class="dropdown-item" href="{% url 'rezervasyonlarim' %}">Rezervasyonlarım</a></li>
+                                   <li> <a class="dropdown-item" href="{% url 'logoutaccount' %}">Logout </a></li>
+                                 </ul>
+                               </li>
+                           </div> 
+							   </li>
+                     {% else %}
+                      <li class="nav-item d_none">
+                         <a class="nav-link" href="{% url 'loginaccount' %}"><i class="fa fa-user-circle padd_right" aria-hidden="true"></i> Login</a>
+                      </li>
+                      <li class="nav-item d_none">
+                        <a class="nav-link" href="{% url 'signupaccount' %}"><i class="fa fa-user-circle padd_right" aria-hidden="true"></i> Register</a>
+                      </li>
+                     {% endif %}
+                   </ul>
+                </div>
+             </nav>
+          </div>
+       </div>
+    </div>
+ </div>
+</header>
